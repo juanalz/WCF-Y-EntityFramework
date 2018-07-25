@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_ProductosRodandoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblClientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Documento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblPedidos">
+          <Key>
+            <PropertyRef Name="NroFactura" />
+          </Key>
+          <Property Name="NroFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="DireccionEntrega" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pagado" Type="bit" />
+          <Property Name="Producto" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalFactura" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblProductos">
+          <Key>
+            <PropertyRef Name="IdProductos" />
+          </Key>
+          <Property Name="IdProductos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RefProducto" Type="nvarchar" MaxLength="50" />
+          <Property Name="NombreProducto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="db_ProductosRodandoModelStoreContainer">
+          <EntitySet Name="tblClientes" EntityType="Self.tblClientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblPedidos" EntityType="Self.tblPedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblProductos" EntityType="Self.tblProductos" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_ProductosRodandoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblClientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblPedidos">
+          <Key>
+            <PropertyRef Name="NroFactura" />
+          </Key>
+          <Property Name="NroFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DireccionEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pagado" Type="Boolean" />
+          <Property Name="Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalFactura" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tblProductos">
+          <Key>
+            <PropertyRef Name="IdProductos" />
+          </Key>
+          <Property Name="IdProductos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RefProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NombreProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="db_ProductosRodandoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblClientes" EntityType="Self.tblClientes" />
+          <EntitySet Name="tblPedidos" EntityType="Self.tblPedidos" />
+          <EntitySet Name="tblProductos" EntityType="Self.tblProductos" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_ProductosRodandoModelStoreContainer" CdmEntityContainer="db_ProductosRodandoEntities">
+          <EntitySetMapping Name="tblClientes">
+            <EntityTypeMapping TypeName="db_ProductosRodandoModel.tblClientes">
+              <MappingFragment StoreEntitySet="tblClientes">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblPedidos">
+            <EntityTypeMapping TypeName="db_ProductosRodandoModel.tblPedidos">
+              <MappingFragment StoreEntitySet="tblPedidos">
+                <ScalarProperty Name="NroFactura" ColumnName="NroFactura" />
+                <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+                <ScalarProperty Name="DireccionEntrega" ColumnName="DireccionEntrega" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="TotalFactura" ColumnName="TotalFactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblProductos">
+            <EntityTypeMapping TypeName="db_ProductosRodandoModel.tblProductos">
+              <MappingFragment StoreEntitySet="tblProductos">
+                <ScalarProperty Name="IdProductos" ColumnName="IdProductos" />
+                <ScalarProperty Name="RefProducto" ColumnName="RefProducto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

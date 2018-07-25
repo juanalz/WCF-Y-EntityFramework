@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_ProductosRodandoModelStoreContainer" CdmEntityContainer="db_ProductosRodandoEntities">
+    <EntitySetMapping Name="tblClientes">
+      <EntityTypeMapping TypeName="db_ProductosRodandoModel.tblClientes">
+        <MappingFragment StoreEntitySet="tblClientes">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Documento" ColumnName="Documento" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblPedidos">
+      <EntityTypeMapping TypeName="db_ProductosRodandoModel.tblPedidos">
+        <MappingFragment StoreEntitySet="tblPedidos">
+          <ScalarProperty Name="NroFactura" ColumnName="NroFactura" />
+          <ScalarProperty Name="Cliente" ColumnName="Cliente" />
+          <ScalarProperty Name="DireccionEntrega" ColumnName="DireccionEntrega" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Pagado" ColumnName="Pagado" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="TotalFactura" ColumnName="TotalFactura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductos">
+      <EntityTypeMapping TypeName="db_ProductosRodandoModel.tblProductos">
+        <MappingFragment StoreEntitySet="tblProductos">
+          <ScalarProperty Name="IdProductos" ColumnName="IdProductos" />
+          <ScalarProperty Name="RefProducto" ColumnName="RefProducto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

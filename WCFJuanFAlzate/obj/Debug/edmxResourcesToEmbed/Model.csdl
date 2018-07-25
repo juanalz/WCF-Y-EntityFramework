@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_ProductosRodandoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblClientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tblPedidos">
+    <Key>
+      <PropertyRef Name="NroFactura" />
+    </Key>
+    <Property Name="NroFactura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DireccionEntrega" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fecha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Pagado" Type="Boolean" />
+    <Property Name="Producto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalFactura" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tblProductos">
+    <Key>
+      <PropertyRef Name="IdProductos" />
+    </Key>
+    <Property Name="IdProductos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RefProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NombreProducto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Precio" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="db_ProductosRodandoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblClientes" EntityType="Self.tblClientes" />
+    <EntitySet Name="tblPedidos" EntityType="Self.tblPedidos" />
+    <EntitySet Name="tblProductos" EntityType="Self.tblProductos" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_ProductosRodandoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblClientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+    <Property Name="Documento" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblPedidos">
+    <Key>
+      <PropertyRef Name="NroFactura" />
+    </Key>
+    <Property Name="NroFactura" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="DireccionEntrega" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fecha" Type="nvarchar" MaxLength="50" />
+    <Property Name="Pagado" Type="bit" />
+    <Property Name="Producto" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalFactura" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tblProductos">
+    <Key>
+      <PropertyRef Name="IdProductos" />
+    </Key>
+    <Property Name="IdProductos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RefProducto" Type="nvarchar" MaxLength="50" />
+    <Property Name="NombreProducto" Type="nvarchar" MaxLength="50" />
+    <Property Name="Precio" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="db_ProductosRodandoModelStoreContainer">
+    <EntitySet Name="tblClientes" EntityType="Self.tblClientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPedidos" EntityType="Self.tblPedidos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProductos" EntityType="Self.tblProductos" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
